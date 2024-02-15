@@ -1,5 +1,5 @@
 "use client";
-import { RiRecordCircleFill } from "@remixicon/react";
+
 import { Badge, BarList, Card, Text } from "@tremor/react";
 import { useEffect } from "react";
 
@@ -9,12 +9,12 @@ const datahero = [
   { name: "/cancellation", value: 51 },
 ];
 
-export const BarListHero = ({ data }) => {
+export const BarListHero = ({ data }: { data: any }) => {
   useEffect(() => {}, []);
   const result = data.reduce(
-    (acc, item) => {
+    (acc: any, item: any) => {
       // Update url count
-      const urlIndex = acc.url.findIndex((obj) => obj.name === item.url);
+      const urlIndex = acc.url.findIndex((obj: any) => obj.name === item.url);
       if (urlIndex !== -1) {
         acc.url[urlIndex].value++;
       } else {
@@ -23,7 +23,8 @@ export const BarListHero = ({ data }) => {
 
       // Update city count
       const cityIndex = acc.city.findIndex(
-        (obj) => decodeURIComponent(obj.name) === decodeURIComponent(item.city)
+        (obj: any) =>
+          decodeURIComponent(obj.name) === decodeURIComponent(item.city)
       );
       if (cityIndex !== -1) {
         acc.city[cityIndex].value++;
